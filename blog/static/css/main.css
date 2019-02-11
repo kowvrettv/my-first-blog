@@ -1,0 +1,68 @@
+.container {
+    max-width: 1000px;
+}
+
+.img-fluid {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+a, a:active {
+    color: #42A5F5;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #90CAF9;
+    transition-duration: 0.4s;
+}
+
+.profile li {
+    float: left;
+    margin-right: 8px;
+}
+
+.profile {
+    list-style: none;
+    padding: 0;
+    display: inline-block;
+}
+
+.profile::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.fa-circle {
+    color: #f44336;
+}
+
+.total_posts {
+    color: #BDBDBD;
+}
+
+.published_by {
+    color: #757575;
+}
+
+.posts_list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.rounded-circle {
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius:100px;
+    max-width: 200px;
+    height: auto;
+}
+
+h1, h2, h3 {
+    font-weight: bold;
+}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load blog_tags %}
+
+{% block title %}Блог - Александр Хома{% endblock %}
+
+{% block content %}
+    <h5 class='total_posts'>Это мой блог. Сейчас в нем {% total_posts %} публикаций.</h5>
+    <p><a href="{% url 'blog:post_feed' %}">Подписаться на рассылку RSS</a></p>
+    {% for post in posts %}
+        <h1>
+            <a href="{{ post.get_absolute_url }}">
+                {{ post.title }}
+            </a>
+        </h1>
+        <p>
+            <i class="published_by">Опубликован {{ post.publish }}</i>
+        </p>
+        <img src="/media/{{ post.image }}" class="img-fluid" alt="{{ post.title }}">
+        {{ post.body|markdown|truncatewords_html:30 }}
+        
+        <p>
+            <a href="{{ post.get_absolute_url }}">
+                <button type="button" class="btn btn-info">Читать дальше</button>
+            </a>
+        </p>
+    {% endfor %}
+    {% include 'blog/pagination.html' with page=page_obj %}
+    <br>
+    <h3>Самые комментируемые публикации:</h3>
+    {% get_most_commented_posts as most_commented_posts %}
+    <ul class="posts_list">
+        {% for post in most_commented_posts %}
+        <li>
+            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

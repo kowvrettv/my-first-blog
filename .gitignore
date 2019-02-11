@@ -1,0 +1,6 @@
+__pycache__
+venv_mysite
+db.sqlite3
+/media/blog
+/blog/migrations
+.DS_Store

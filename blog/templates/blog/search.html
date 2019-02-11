@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+{% load blog_tags %}
+
+{% block content %}
+    {% if search_result %}
+        <h2>Результаты поиска: </h2>
+        {% for result in search_result %}
+        <p>
+            <a href="{{ result.get_absolute_url }}"><h1>{{ result.title }}</h1></a>
+            <img src="/media/{{ result.image }}" class="img-fluid" alt="{{ result.title }}">
+            {{ result.body|truncatewords_html:30 }}
+            <br>
+            <a href="{{ result.get_absolute_url }}">
+                <button type="button" class="btn btn-info">Читать дальше</button>
+            </a>
+        </p>    
+        {% endfor %}
+    {% else %}
+        <h2>Поиск не дал результатов.</h2>
+        <p>
+            <h3>Последние публикации в блоге:</h3>
+            {% show_latest_posts 3 %}
+        </p>
+    {% endif %}
+{% endblock %}

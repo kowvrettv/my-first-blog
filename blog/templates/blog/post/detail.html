@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load blog_tags %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+    <h1>{{ post.title }}</h1>
+    <p>
+        <i class="published_by">Опубликован {{ post.publish }}</i>
+    </p>
+    <img src="/media/{{ post.image }}" class="img-fluid" alt="{{ post.title }}">
+    {{ post.body|markdown }}
+
+    <p>
+        <h3>Последние публикации:</h3>
+        {% show_latest_posts 3 %}
+    </p>
+
+    {% with comments.count as total_comments %}
+        <h3>
+            Всего комментариев: {{ total_comments }}
+        </h3>
+    {% endwith %}
+    
+    <!-- Отображение комментариев -->
+    {% for comment in comments %}
+        <div>
+            <p>
+                {{ forloop.counter }} комментарий от {{ comment.name }} <!-- Счетчик цикла в каждой итерации-->
+                {{ comment.created }}
+            </p>
+            {{ comment.body|linebreaks }}
+        </div>
+    {% empty %}
+    <p>Комментариев нет.</p>
+    {% endfor %}
+
+    {% if new_comment %}
+        <h2>Ваш комментарий опубликован.</h2>
+    {% else %}
+        <!-- Добавление комментария -->
+        <h2>Добавить комментарий</h2> 
+        <form action="." method="post">
+            <div class="row">
+                <div class="col-6">
+                    {{ comment_form.name|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ comment_form.email|as_crispy_field }}
+                </div>
+            </div>
+            {{ comment_form.body|as_crispy_field }}
+            {% csrf_token %}
+            <p><button type="submit" class="btn btn-primary">Отправить</button></p> 
+        </form>
+    {% endif %}
+{% endblock %}
