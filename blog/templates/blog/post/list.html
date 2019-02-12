@@ -4,7 +4,7 @@
 {% block title %}Блог - Александр Хома{% endblock %}
 
 {% block content %}
-    <h5 class='total_posts'>Это мой блог. Сейчас в нем {% total_posts %} публикаций.</h5>
+    <h5 class='total_posts'>Это мой блог. Всего публикаций: {% total_posts %}</h5>
     <p><a href="{% url 'blog:post_feed' %}">Подписаться на рассылку RSS</a></p>
     {% for post in posts %}
         <h1>
