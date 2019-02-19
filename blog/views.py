@@ -44,6 +44,7 @@ def post_detail(request, year, month, day, post):
 def search(request):
     if request.method == 'GET':
         search_prompt = request.GET.get('search')
+        # Поиск по словам/фразам в заголовке или тексте поста
         search_result = Post.objects.filter(body__icontains=search_prompt) or Post.objects.filter(title__icontains=search_prompt) 
         return render(request, 'blog/search.html', {'search_result': search_result})
     else:

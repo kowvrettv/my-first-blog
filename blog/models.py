@@ -47,7 +47,7 @@ class Comment(models.Model):
                             related_name='comments',
                             verbose_name='Публикация')
     name = models.CharField(max_length=80, verbose_name='Имя')
-    email = models.EmailField(verbose_name='Электронный адрес')
+    email = models.EmailField(verbose_name='E-mail')
     body = models.TextField(verbose_name='Текст')
     created = models.DateTimeField(auto_now_add=True, verbose_name='Создан')
     updated = models.DateTimeField(auto_now=True, verbose_name='Обновлен')
