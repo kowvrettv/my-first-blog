@@ -2,24 +2,39 @@
 {% load blog_tags %}
 {% load crispy_forms_tags %}
 
-{% block title %}{{ post.title }} - Александр Хома{% endblock %}
+{% block title %}
+    <title>{{ post.title }} / Александр Хома</title>
+    <meta name="description" content="{{ post.body|truncatewords:10 }}">
+    <meta name="keywords" content="">
+{% endblock %}
+
+{% block meta %}
+    <link rel="canonical" href="http://kowvrettv.pythonanywhere.com{{ post.get_absolute_url }}">
+    <meta property="og:url" content="http://kowvrettv.pythonanywhere.com{{ post.get_absolute_url }}">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{{ post.title }}">
+    <meta property="og:description" content="{{ post.body|truncatewords:10 }}">
+    <meta property="og:image" content="/media/{{ post.image }}">
+{% endblock %}
 
 {% block content %}
     <h1>{{ post.title }}</h1>
     <p>
-        <i class="published_by">Опубликован {{ post.publish }}</i>
+        <i class="published_by">{{ post.publish }}</i>
     </p>
     <img src="/media/{{ post.image }}" class="img-fluid" alt="{{ post.title }}">
     {{ post.body|markdown }}
 
+    <!-- Список последних публикаций -->
     <p>
         <h3>Последние публикации:</h3>
         {% show_latest_posts 3 %}
     </p>
 
+    <!-- Сколько комментариев у публикации-->
     {% with comments.count as total_comments %}
         <h3>
-            Всего комментариев: {{ total_comments }}
+            Комментарии: {{ total_comments }}
         </h3>
     {% endwith %}
     
@@ -39,7 +54,7 @@
     {% if new_comment %}
         <h2>Ваш комментарий опубликован.</h2>
     {% else %}
-        <!-- Добавление комментария -->
+        <!-- Форма для нового комментария -->
         <h2>Добавить комментарий</h2> 
         <form action="." method="post">
             <div class="row">
