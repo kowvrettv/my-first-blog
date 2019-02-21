@@ -8,8 +8,7 @@
         <p>
             <a href="{{ result.get_absolute_url }}"><h1>{{ result.title }}</h1></a>
             <img src="/media/{{ result.image }}" class="img-fluid" alt="{{ result.title }}">
-            {{ result.body|truncatewords_html:30 }}
-            <br>
+            <p>{{ result.body|truncatewords_html:30 }}</p>
             <a href="{{ result.get_absolute_url }}">
                 <button type="button" class="btn btn-info">Читать дальше</button>
             </a>
