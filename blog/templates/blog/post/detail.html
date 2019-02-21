@@ -79,7 +79,7 @@
             </div>
             {{ comment_form.body|as_crispy_field }}
             {% csrf_token %}
-            <p><button type="submit" class="btn btn-primary">Отправить</button></p> 
+            <p><button type="submit" class="btn btn-sm btn-outline-primary">Отправить</button></p> 
         </form>
     {% endif %}
 {% endblock %}

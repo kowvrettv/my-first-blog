@@ -16,24 +16,31 @@ h3 {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+h1 > a {
+    color: #424242;
+}
+
+h1 > a:hover {
+    color: #78909C;
+}
+
 a, 
 a:active {
-    color: #26A69A;
+    color: #f44336;
     text-decoration: none;
-    background-image: linear-gradient(currentColor, currentColor);
-    background-position: 0% 100%;
-    background-repeat: no-repeat;
-    background-size: 0% 2px;
-    transition: background-size .3s;
 }
 
 a:hover, 
 a:focus {
+    color: #FF8A65;
     text-decoration: none;
-    color: #4DB6AC;
-    background-size: 100% 2px;
+    transition-duration: 0.3s;
 }
 
+.btn:hover,
+.btn:focus {
+    transition-duration: 0.3s;
+}
 .profile li {
     float: left;
     margin-right: 8px;
@@ -82,47 +89,5 @@ a:focus {
     height: auto;
 }
 
-.btn {
-    transition: none;
-}
 
-.btn-info, 
-.btn-primary,
-.page-link {
-    background-color: #ffffff;
-    border-color: #BDBDBD;
-    color: #212121;
-    text-decoration: none;
-    background-image: none;
-}
 
-.btn-info:hover, 
-.btn-info:focus, 
-.btn-primary:hover, 
-.btn-primary:focus,
-.page-link:hover,
-.page-link:focus {
-    background-color: #4DB6AC;
-    border-color: #4DB6AC;
-    color: #ffffff;
-    text-decoration: none;
-    background-image: none;
-}
-
-.btn-outline-success {
-    background-color: #4DB6AC;
-    border-color: #4DB6AC;
-    color: #ffffff;
-    text-decoration: none;
-    background-image: none;
-}
-
-.btn-outline-success:hover,
-.btn-outline-success:focus,
-.btn-outline-success:active {
-    background-color: #80CBC4;
-    border-color: #BDBDBD;
-    color: #ffffff;
-    text-decoration: none;
-    background-image: none;
-}
