@@ -16,8 +16,6 @@
     <script src="{% static 'javascript/jquery.js' %}"></script>
     <script src="{% static 'javascript/popper.js' %}"></script>
     <script src="{% static 'javascript/bootstrap.js' %}"></script>
-    
-    
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134753058-1"></script>
@@ -81,24 +79,24 @@
             </div>
             <div class="col-md-8">
                 {% block content %}
-                <h1>Привет, это мой Django проект!</h1>
-                <img src="media/homepage.png" alt="programming" class="img-fluid">
-                <p>Меня зовут <strong>Александр Хома</strong>, сейчас я работаю на позици traffic-manager
-                    в компании <a href="https://wikrgroup.com/" target="_blank">Wikr Group</a>, но мой вектор развития направлен в сторону
-                    разработки на <strong>Python</strong>. Мне нравится этот язык программирования 
-                    и для самообразования я выбрал веб-фреймворк <strong>Django</strong>, с помощью 
-                    которого я решил создать свой первый проект.
-                </p> 
-                <p>
-                    На данном этапе я реализовал основной функционал <a href="{% url 'blog:post_list' %}">личного блога</a>, 
-                    в котором я буду время от времени размещать публикации со своими мыслями.
-                    В дальнейшем есть планы добавить веб-скраппер для того, чтобы следить
-                    за матчами на профессиональной CS:GO сцене. В будущем свои идеи я буду
-                    реализовывать именно здесь и описывать процессы в блоге.
-                </p>
-                <p>
+                    <h1>Привет, это мой Django проект!</h1>
+                    <img src="media/homepage.png" alt="programming" class="img-fluid">
+                    <p>
+                        Меня зовут <strong>Александр Хома</strong>, сейчас я работаю на позици traffic-manager
+                        в компании <a href="https://wikrgroup.com/" target="_blank">Wikr Group</a>, но мой вектор развития направлен в сторону
+                        разработки на <strong>Python</strong>. Мне нравится этот язык программирования 
+                        и для самообразования я выбрал веб-фреймворк <strong>Django</strong>, с помощью 
+                        которого я решил создать свой первый проект.
+                    </p> 
+                    <p>
+                        На данном этапе я реализовал основной функционал <a href="{% url 'blog:post_list' %}">личного блога</a>, 
+                        в котором я буду время от времени размещать публикации со своими мыслями.
+                        В дальнейшем есть планы добавить веб-скраппер для того, чтобы следить
+                        за матчами на профессиональной CS:GO сцене. В будущем свои идеи я буду
+                        реализовывать именно здесь и описывать процессы в блоге.
+                    </p>
                     Стек технологий, которые я использую сейчас:
-                    <ul>
+                    <ul class="tech-stack">
                         <li>Python 3</li>
                         <li>Django 2</li>
                         <li>Bootstrap</li>
@@ -106,7 +104,6 @@
                         <li>SQLite</li>
                         <li>GitHub</li>
                     </ul>
-                </p>
                 {% endblock %}    
             </div>    
         </div>

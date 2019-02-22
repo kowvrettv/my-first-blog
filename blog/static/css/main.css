@@ -101,3 +101,7 @@ a:focus {
 .form-inline > input {
     color: rgba(255, 255, 255, 0.5)
 }
+
+.tech-stack {
+    list-style-type: circle;
+}
