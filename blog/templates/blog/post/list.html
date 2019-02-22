@@ -23,8 +23,8 @@
         {{ post.body|markdown|truncatewords_html:30 }}
         
         <p>
-            <a href="{{ post.get_absolute_url }}">
-                <button type="button" class="btn btn-sm btn-outline-dark">Читать дальше</button>
+            <a class="btn btn-sm btn-outline-dark" href="{{ post.get_absolute_url }}">
+                Читать дальше
             </a>
         </p>
     {% endfor %}
