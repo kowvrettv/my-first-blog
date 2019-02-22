@@ -58,10 +58,12 @@ a:focus {
     clear: both;
 }
 
-.profile a,
-.navbar-brand {
-    text-decoration: none;
-    background-image: none;
+.profile a {
+    color: #343a40;
+}
+
+.profile a:hover {
+    color: #78909C;
 }
 
 .fa-circle {
@@ -99,4 +101,3 @@ a:focus {
 .form-inline > input {
     color: rgba(255, 255, 255, 0.5)
 }
-
