@@ -1,5 +1,6 @@
 User-agent: *
-Disallow: /
+Disallow: /project_mysite
+Disallow: /venv_blog
 
 User-agent: Twitterbot
 Disallow:
