@@ -89,5 +89,14 @@ a:focus {
     height: auto;
 }
 
+.form-control-sm {
+    background-color: #40474E;
+    border-radius: 2px;
+    border-style: none;
+}
 
+.form-control-sm::placeholder,
+.form-inline > input {
+    color: rgba(255, 255, 255, 0.5)
+}
 
