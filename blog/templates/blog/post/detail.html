@@ -1,4 +1,5 @@
 {% extends 'base_detail.html' %}
+{% load static %}
 {% load blog_tags %}
 {% load crispy_forms_tags %}
 
@@ -37,9 +38,13 @@
     <img src="/media/{{ post.image }}" class="img-fluid" alt="{{ post.title }}">
     {{ post.body|markdown }}
 
-    <p>
-        <a class="twitter-share-button" href="https://twitter.com/intent/tweet">Tweet</a>
-    </p>
+    <!-- Shara social buttons -->
+    <div class="share-buttons">
+        Поделиться:
+        <a href="https://www.facebook.com/sharer.php?u=http://kowvrettv.pythonanywhere.com{{ post.get_absolute_url }}" target="_blank"><img src="{% static 'img/facebook.png' %}" alt="Facebook" /></a>
+        <a href="https://twitter.com/share?url=http://kowvrettv.pythonanywhere.com{{ post.get_absolute_url }}" target="_blank"><img src="{% static 'img/twitter.png' %}" alt="Twitter" /></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://kowvrettv.pythonanywhere.com{{ post.get_absolute_url }}" target="_blank"><img src="{% static 'img/linkedin.png' %}" alt="LinkedIn" /></a>
+    </div>
 
     <!-- Список последних публикаций -->
         <h3>Последние публикации:</h3>
@@ -47,9 +52,9 @@
 
     <!-- Сколько комментариев у публикации-->
     {% with comments.count as total_comments %}
-        <h3>
+        <h4>
             Комментарии: {{ total_comments }}
-        </h3>
+        </h4>
     {% endwith %}
     
     <!-- Отображение комментариев -->
@@ -66,10 +71,10 @@
     {% endfor %}
 
     {% if new_comment %}
-        <h2>Ваш комментарий опубликован.</h2>
+        <h4>Ваш комментарий опубликован.</h4>
     {% else %}
         <!-- Форма для нового комментария -->
-        <h2>Добавить комментарий</h2> 
+        <h4>Добавить комментарий</h4> 
         <form action="." method="post">
             <div class="row">
                 <div class="col-6">

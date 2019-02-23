@@ -10,7 +10,7 @@
             <img src="/media/{{ result.image }}" class="img-fluid" alt="{{ result.title }}">
             <p>{{ result.body|truncatewords_html:30 }}</p>
             <a href="{{ result.get_absolute_url }}">
-                <button type="button" class="btn btn-info">Читать дальше</button>
+                <button type="button" class="btn btn-sm btn-outline-info">Читать дальше</button>
             </a>
         </p>    
         {% endfor %}

@@ -105,3 +105,23 @@ a:focus {
 .tech-stack {
     list-style-type: circle;
 }
+
+.social-buttons li {
+    list-style: none;
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+.social-buttons {
+    padding: 0;
+}
+
+.share-buttons img { 
+    display: inline-block; 
+    width: 45px; 
+    padding: 5px; 
+    border: 0; 
+    box-shadow: 0;
+    margin-bottom: 10px;
+}
