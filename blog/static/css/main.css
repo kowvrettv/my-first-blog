@@ -117,11 +117,23 @@ a:focus {
     padding: 0;
 }
 
-.share-buttons img { 
+.share-buttons { 
     display: inline-block; 
-    width: 45px; 
     padding: 5px; 
+    padding-left: 0;
     border: 0; 
     box-shadow: 0;
     margin-bottom: 10px;
+}
+
+.share-buttons a:first-child {
+    color: #4267b2;;
+}
+
+.share-buttons a:nth-child(2) {
+    color: #38A1F3;
+}
+
+.share-buttons a:last-child {
+    color: #0077B5;
 }
