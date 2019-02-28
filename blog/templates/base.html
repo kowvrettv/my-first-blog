@@ -79,21 +79,20 @@
             </div>
             <div class="col-md-8">
                 {% block content %}
-                    <h1>Привет, это мой Django проект!</h1>
+                    <h1>Привет, это мой демо-проект!</h1>
                     <img src="media/homepage.png" alt="programming" class="img-fluid">
                     <p>
-                        Меня зовут <strong>Александр Хома</strong>, сейчас я работаю на позици traffic-manager
-                        в компании <a href="https://wikrgroup.com/" target="_blank">Wikr Group</a>, но мой вектор развития направлен в сторону
-                        разработки на <strong>Python</strong>. Мне нравится этот язык программирования 
-                        и для самообразования я выбрал веб-фреймворк <strong>Django</strong>, с помощью 
-                        которого я решил создать свой первый проект.
+                        Меня зовут <strong>Александр Хома</strong>, я работаю на позиции 
+                        traffic-manager в компании 
+                        <a href="https://wikrgroup.com/" target="_blank">Wikr Group</a>, 
+                        активно изучаю <strong>Python</strong> и готовлюсь к переходу на позицию 
+                        Junior Python Developer. 
                     </p> 
                     <p>
-                        На данном этапе я реализовал основной функционал <a href="{% url 'blog:post_list' %}">личного блога</a>, 
-                        в котором я буду время от времени размещать публикации со своими мыслями.
-                        В дальнейшем есть планы добавить веб-скраппер для того, чтобы следить
-                        за матчами на профессиональной CS:GO сцене. В будущем свои идеи я буду
-                        реализовывать именно здесь и описывать процессы в блоге.
+                        На данном этапе развития я решил создать 
+                        <a href="{% url 'blog:post_list' %} ">личный блог</a> на фреймворке 
+                        <strong>Django</strong>. В дальнейшем я хочу и дальше осваивать веб-технологии, а
+                        также изучить сбор и анализ данных с помощью <strong>Python</strong>.
                     </p>
                     Стек технологий, которые я использую сейчас:
                     <ul class="tech-stack">
@@ -102,8 +101,13 @@
                         <li>Bootstrap</li>
                         <li>HTML/CSS</li>
                         <li>SQLite</li>
-                        <li>GitHub</li>
+                        <li>Git/GitHub</li>
+                        <li><a href="https://pythonanywhere.com" target="_blank">Pytrhonanywhere</a></li> 
                     </ul>
+                    <p>
+                        Уровень английского языка: <strong>intermediate</strong>. <br/>
+                        Готов рассмотреть предложения о сотрудничестве на удаленной основе. 
+                    </p>
                 {% endblock %}    
             </div>    
         </div>
