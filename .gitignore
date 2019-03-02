@@ -3,5 +3,4 @@ venv_mysite
 db.sqlite3
 /media/blog
 /blog/migrations
-/project_mysite/settings.py
 .DS_Store
