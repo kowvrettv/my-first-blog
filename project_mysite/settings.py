@@ -23,13 +23,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '4srzwe06wmfd7)j8y&d5%c#(3cp3)@u!v$2r!g1tr_srg^$!e2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['www.khoma.online']
+ALLOWED_HOSTS = ['*']
 
 SITE_ID = 1
 
-# Application definition
+# Установленные приложения
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -75,7 +75,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'project_mysite.wsgi.application'
 
 
-# Database
+# База данных
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {

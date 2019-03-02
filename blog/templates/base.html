@@ -26,12 +26,16 @@
 
         gtag('config', 'UA-134753058-1');
     </script>
+    <!-- Мета теги -->
+    {% block meta %}
+    {% endblock %}
 
-{% block title %}
-    <title>Александр Хома / Junior Python Разработчик</title>
-    <meta name="description" content="Александр Хома / Junior Python Разработчик">
-    <meta name="keywords" content="">
-{% endblock %}
+    <!-- Title шаблон -->
+    {% block title %}
+        <title>Александр Хома / Junior Python Разработчик</title>
+        <meta name="description" content="Александр Хома / Junior Python Разработчик">
+        <meta name="keywords" content="">
+    {% endblock %}
 
 </head>
 <body>
@@ -59,58 +63,63 @@
         </div>
     </nav>
     <br>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <aside class="text-center">
-                    <img src="/media/frontpage-image.png" class="img-fluid rounded-circle" alt="Alexander Khoma">
-                    <h4>Александр Хома</h4>
-                    <p><strong>Junior Python разработчик</strong></p>
-                    <hr>
-                    <h5>Контакты:</h5>
-                    <ul class="profile">
-                        <li><a href="https://www.facebook.com/alexanderkhoma" target="_blank"><i class="fab fa-facebook-f fa-2x"></i></a></li>
-                        <li><a href="https://www.twitter.com/alexander_khoma" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></li>
-                        <li><a href="https://www.linkedin.com/in/alexanderkhoma/" target="_blank"><i class="fab fa-linkedin-in fa-2x"></i></a></li>
-                        <li><a href="https://github.com/kowvrettv" target="_blank"><i class="fab fa-github fa-2x"></i></a></li>
-                        <li><a href="mailto:d3m11av@gmail.com" target="_blank"><i class="far fa-envelope fa-2x"></i></a></li>
-                    </ul>
-                </aside>
+    <!-- Шаблон контейнера -->
+    {% block container %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <aside class="text-center">
+                        <img src="/media/frontpage-image.png" class="img-fluid rounded-circle" alt="Alexander Khoma">
+                        <h4>Александр Хома</h4>
+                        <p><strong>Junior Python разработчик</strong></p>
+                        <hr>
+                        <h5>Контакты:</h5>
+                        <ul class="profile">
+                            <li><a href="https://www.facebook.com/alexanderkhoma" target="_blank"><i class="fab fa-facebook-f fa-2x"></i></a></li>
+                            <li><a href="https://www.twitter.com/alexander_khoma" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/alexanderkhoma/" target="_blank"><i class="fab fa-linkedin-in fa-2x"></i></a></li>
+                            <li><a href="https://github.com/kowvrettv" target="_blank"><i class="fab fa-github fa-2x"></i></a></li>
+                            <li><a href="mailto:d3m11av@gmail.com" target="_blank"><i class="far fa-envelope fa-2x"></i></a></li>
+                        </ul>
+                    </aside>
+                </div>
+                <div class="col-md-8">
+                    <!-- Шаблон контента -->
+                    {% block content %}
+                        <h1>Привет, это мой демо-проект!</h1>
+                        <img src="media/homepage.png" alt="programming" class="img-fluid">
+                        <p>
+                            Меня зовут <strong>Александр Хома</strong>, я работаю на позиции 
+                            traffic-manager в компании 
+                            <a href="https://wikrgroup.com/" target="_blank">Wikr Group</a>, 
+                            активно изучаю <strong>Python</strong> и готовлюсь к переходу на позицию 
+                            Junior Python Developer. 
+                        </p> 
+                        <p>
+                            На данном этапе развития я решил создать 
+                            <a href="{% url 'blog:post_list' %} ">личный блог</a> на фреймворке 
+                            <strong>Django</strong>. В дальнейшем я хочу и дальше осваивать веб-технологии, а
+                            также изучить сбор и анализ данных с помощью <strong>Python</strong>.
+                        </p>
+                        Стек технологий, которые я использую сейчас:
+                        <ul class="tech-stack">
+                            <li>Python 3</li>
+                            <li>Django 2</li>
+                            <li>Bootstrap</li>
+                            <li>HTML/CSS</li>
+                            <li>SQLite</li>
+                            <li>Git/GitHub</li>
+                            <li><a href="https://pythonanywhere.com" target="_blank">Pytrhonanywhere</a></li> 
+                        </ul>
+                        <p>
+                            Уровень английского языка: <strong>intermediate</strong>. <br/>
+                            Готов рассмотреть предложения о сотрудничестве на удаленной основе. 
+                        </p>
+                    {% endblock %}    
+                </div>    
             </div>
-            <div class="col-md-8">
-                {% block content %}
-                    <h1>Привет, это мой демо-проект!</h1>
-                    <img src="media/homepage.png" alt="programming" class="img-fluid">
-                    <p>
-                        Меня зовут <strong>Александр Хома</strong>, я работаю на позиции 
-                        traffic-manager в компании 
-                        <a href="https://wikrgroup.com/" target="_blank">Wikr Group</a>, 
-                        активно изучаю <strong>Python</strong> и готовлюсь к переходу на позицию 
-                        Junior Python Developer. 
-                    </p> 
-                    <p>
-                        На данном этапе развития я решил создать 
-                        <a href="{% url 'blog:post_list' %} ">личный блог</a> на фреймворке 
-                        <strong>Django</strong>. В дальнейшем я хочу и дальше осваивать веб-технологии, а
-                        также изучить сбор и анализ данных с помощью <strong>Python</strong>.
-                    </p>
-                    Стек технологий, которые я использую сейчас:
-                    <ul class="tech-stack">
-                        <li>Python 3</li>
-                        <li>Django 2</li>
-                        <li>Bootstrap</li>
-                        <li>HTML/CSS</li>
-                        <li>SQLite</li>
-                        <li>Git/GitHub</li>
-                        <li><a href="https://pythonanywhere.com" target="_blank">Pytrhonanywhere</a></li> 
-                    </ul>
-                    <p>
-                        Уровень английского языка: <strong>intermediate</strong>. <br/>
-                        Готов рассмотреть предложения о сотрудничестве на удаленной основе. 
-                    </p>
-                {% endblock %}    
-            </div>    
         </div>
-    </div>
+    {% endblock %}
+</body>
 </html>
 

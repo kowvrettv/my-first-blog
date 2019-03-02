@@ -1,4 +1,4 @@
-{% extends 'base_detail.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% load blog_tags %}
 {% load crispy_forms_tags %}
@@ -30,63 +30,73 @@
     <meta name="twitter:image" content="http://www.khoma.online/media/{{ post.image }}">
 {% endblock %}
 
-{% block content %}
-    <h1>{{ post.title }}</h1>
-    <p>
-        <i class="published_by">{{ post.publish }}</i>
-    </p>
-    <img src="/media/{{ post.image }}" class="img-fluid" alt="{{ post.title }}">
-    {{ post.body|markdown }}
-
-    <!-- Shara social buttons -->
-    <div class="share-buttons">
-        Поделиться:
-        <a href="https://www.facebook.com/sharer.php?u=http://www.khoma.online{{ post.get_absolute_url }}" target="_blank"><i class="fab fa-facebook fa-lg"></i></a>
-        <a href="https://twitter.com/share?url=http://www.khoma.online{{ post.get_absolute_url }}" target="_blank"><i class="fab fa-twitter fa-lg"></i></a>
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://www.khoma.online{{ post.get_absolute_url }}" target="_blank"><i class="fab fa-linkedin-in fa-lg"></i></a>
-    </div>
-
-    <!-- Список последних публикаций -->
-        <h3>Последние публикации:</h3>
-        {% show_latest_posts 3 %}
-
-    <!-- Сколько комментариев у публикации-->
-    {% with comments.count as total_comments %}
-        <h4>
-            Комментарии: {{ total_comments }}
-        </h4>
-    {% endwith %}
-    
-    <!-- Отображение комментариев -->
-    {% for comment in comments %}
-        <div>
-            <p>
-                {{ forloop.counter }} комментарий от {{ comment.name }} <!-- Счетчик цикла в каждой итерации-->
-                {{ comment.created }}
-            </p>
-            {{ comment.body|linebreaks }}
-        </div>
-    {% empty %}
-    <p>Комментариев нет.</p>
-    {% endfor %}
-
-    {% if new_comment %}
-        <h4>Ваш комментарий опубликован.</h4>
-    {% else %}
-        <!-- Форма для нового комментария -->
-        <h4>Добавить комментарий</h4> 
-        <form action="." method="post">
-            <div class="row">
-                <div class="col-6">
-                    {{ comment_form.name|as_crispy_field }}
-                </div>
-                <div class="col-6">
-                    {{ comment_form.email|as_crispy_field }}
-                </div>
+{% block container %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                    {% block content %}
+                    <h1>{{ post.title }}</h1>
+                    <p>
+                        <i class="published_by">{{ post.publish }}</i>
+                    </p>
+                    <img src="/media/{{ post.image }}" class="img-fluid" alt="{{ post.title }}">
+                    {{ post.body|markdown }}
+                
+                    <!-- Кнопки соц. медиа -->
+                    <div class="share-buttons">
+                        Поделиться:
+                        <a href="https://www.facebook.com/sharer.php?u=http://www.khoma.online{{ post.get_absolute_url }}" target="_blank"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="https://twitter.com/share?url=http://www.khoma.online{{ post.get_absolute_url }}" target="_blank"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://www.khoma.online{{ post.get_absolute_url }}" target="_blank"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                    </div>
+                
+                    <!-- Список последних публикаций -->
+                        <h3>Последние публикации:</h3>
+                        {% show_latest_posts 3 %}
+                
+                    <!-- Сколько комментариев у публикации-->
+                    {% with comments.count as total_comments %}
+                        <h4>
+                            Комментарии: {{ total_comments }}
+                        </h4>
+                    {% endwith %}
+                    
+                    <!-- Отображение комментариев -->
+                    {% for comment in comments %}
+                        <div>
+                            <p>
+                                {{ forloop.counter }} комментарий от {{ comment.name }} <!-- Счетчик цикла в каждой итерации-->
+                                {{ comment.created }}
+                            </p>
+                            {{ comment.body|linebreaks }}
+                        </div>
+                    {% empty %}
+                    <p>Комментариев нет.</p>
+                    {% endfor %}
+                
+                    {% if new_comment %}
+                        <h4>Ваш комментарий опубликован.</h4>
+                    {% else %}
+                        <!-- Форма для нового комментария -->
+                        <h4>Добавить комментарий</h4> 
+                        <form action="." method="post">
+                            <div class="row">
+                                <div class="col-6">
+                                    {{ comment_form.name|as_crispy_field }}
+                                </div>
+                                <div class="col-6">
+                                    {{ comment_form.email|as_crispy_field }}
+                                </div>
+                            </div>
+                            {{ comment_form.body|as_crispy_field }}
+                            {% csrf_token %}
+                            <p><button type="submit" class="btn btn-sm btn-outline-primary">Отправить</button></p> 
+                        </form>
+                    {% endif %}
+                {% endblock %}    
             </div>
-            {{ comment_form.body|as_crispy_field }}
-            {% csrf_token %}
-            <p><button type="submit" class="btn btn-sm btn-outline-primary">Отправить</button></p> 
-        </form>
-    {% endif %}
+            <div class="col-md-2"></div>
+        </div>
+    </div>
 {% endblock %}
